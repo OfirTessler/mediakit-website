@@ -1,0 +1,139 @@
+// ========== LANGUAGE TOGGLE ==========
+const langToggle = document.getElementById('langToggle');
+const langLabel = langToggle.querySelector('.lang-toggle__label');
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+
+    const html = document.documentElement;
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
+
+    // Update toggle button label
+    langLabel.textContent = lang === 'en' ? 'HE' : 'EN';
+
+    // Update body font
+    document.body.style.fontFamily = lang === 'he'
+        ? "'Heebo', sans-serif"
+        : "'Inter', sans-serif";
+
+    // Swap all text content
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+
+    // Swap placeholders
+    document.querySelectorAll('[data-placeholder-en]').forEach(function(el) {
+        el.placeholder = el.getAttribute('data-placeholder-' + lang);
+    });
+}
+
+langToggle.addEventListener('click', function() {
+    setLanguage(currentLang === 'en' ? 'he' : 'en');
+});
+
+// Apply saved language on load
+if (currentLang !== 'en') {
+    setLanguage(currentLang);
+}
+
+// ========== MOBILE MENU TOGGLE ==========
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+navToggle.addEventListener('click', function() {
+    navMenu.classList.toggle('open');
+    const icon = navToggle.querySelector('i');
+    if (navMenu.classList.contains('open')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+});
+
+// Close menu when clicking a link
+navMenu.querySelectorAll('.navbar__link').forEach(function(link) {
+    link.addEventListener('click', function() {
+        navMenu.classList.remove('open');
+        var icon = navToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    });
+});
+
+// ========== ACTIVE NAV LINK ON SCROLL ==========
+var sections = document.querySelectorAll('section[id]');
+
+function updateActiveLink() {
+    var scrollY = window.scrollY + 100;
+
+    sections.forEach(function(section) {
+        var top = section.offsetTop;
+        var height = section.offsetHeight;
+        var id = section.getAttribute('id');
+
+        if (scrollY >= top && scrollY < top + height) {
+            document.querySelectorAll('.navbar__link').forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + id) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveLink);
+
+// ========== NAVBAR SHADOW ON SCROLL ==========
+window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('navbar');
+    if (window.scrollY > 10) {
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+        navbar.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.08)';
+    }
+});
+
+// ========== CONTACT FORM ==========
+var contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', function(e) {
+    // Check if Formspree ID is still placeholder
+    var action = contactForm.getAttribute('action');
+    if (action.indexOf('YOUR_FORM_ID') !== -1) {
+        e.preventDefault();
+        var msg = currentLang === 'he'
+            ? 'תודה! ההודעה שלך התקבלה (טופס הדגמה).'
+            : 'Thank you! Your message has been received (demo form).';
+        alert(msg);
+        contactForm.reset();
+    }
+});
+
+// ========== SCROLL ANIMATIONS ==========
+function animateOnScroll() {
+    var elements = document.querySelectorAll('.service-card, .stat, .about__content, .about__image');
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+animateOnScroll();
