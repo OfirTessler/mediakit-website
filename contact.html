@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — My Consulting</title>
+    <meta name="description" content="Get in touch with My Consulting. Schedule a free consultation or send us a message.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar__inner">
+            <a href="index.html" class="navbar__logo">
+                <span class="logo-text" data-en="My Consulting" data-he="היועצים שלי">My Consulting</span>
+            </a>
+
+            <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="navbar__menu" id="navMenu">
+                <li><a href="index.html" class="navbar__link" data-en="Home" data-he="בית">Home</a></li>
+                <li><a href="services.html" class="navbar__link" data-en="Services" data-he="שירותים">Services</a></li>
+                <li><a href="index.html#about" class="navbar__link" data-en="About" data-he="אודות">About</a></li>
+                <li><a href="contact.html" class="navbar__link active" data-en="Contact" data-he="צור קשר">Contact</a></li>
+            </ul>
+
+            <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+                <span class="lang-toggle__label">HE</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== PAGE HERO ========== -->
+    <section class="page-hero">
+        <div class="container page-hero__content">
+            <h1 class="page-hero__title" data-en="Get in Touch" data-he="צרו קשר">Get in Touch</h1>
+            <p class="page-hero__subtitle" data-en="We'd love to hear from you. Reach out and let's start a conversation about your business." data-he="נשמח לשמוע מכם. פנו אלינו ונתחיל שיחה על העסק שלכם.">
+                We'd love to hear from you. Reach out and let's start a conversation about your business.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT INFO CARDS ========== -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-info__grid">
+                <div class="contact-info-card">
+                    <div class="contact-info-card__icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-info-card__title" data-en="Email Us" data-he="שלחו אימייל">Email Us</h3>
+                    <p class="contact-info-card__text">info@myconsulting.com</p>
+                    <a href="mailto:info@myconsulting.com" class="contact-info-card__link" data-en="Send an email" data-he="שלחו אימייל">Send an email</a>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-card__icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="contact-info-card__title" data-en="Call Us" data-he="התקשרו אלינו">Call Us</h3>
+                    <p class="contact-info-card__text">+972-3-123-4567</p>
+                    <a href="tel:+97231234567" class="contact-info-card__link" data-en="Make a call" data-he="בצעו שיחה">Make a call</a>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-card__icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="contact-info-card__title" data-en="Visit Us" data-he="בקרו אותנו">Visit Us</h3>
+                    <p class="contact-info-card__text" data-en="123 Business Ave, Tel Aviv, Israel" data-he="שד' העסקים 123, תל אביב, ישראל">123 Business Ave, Tel Aviv, Israel</p>
+                    <a href="#map" class="contact-info-card__link" data-en="View on map" data-he="הצגה במפה">View on map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT FORM + SIDEBAR ========== -->
+    <section class="contact-main">
+        <div class="container contact-main__inner">
+            <!-- Form -->
+            <div class="contact-main__form-wrap">
+                <h2 class="contact-main__title" data-en="Send Us a Message" data-he="שלחו לנו הודעה">Send Us a Message</h2>
+                <p class="contact-main__subtitle" data-en="Fill out the form below and we'll get back to you within 24 hours." data-he="מלאו את הטופס למטה ונחזור אליכם תוך 24 שעות.">
+                    Fill out the form below and we'll get back to you within 24 hours.
+                </p>
+
+                <form class="contact-page-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" data-en="First Name" data-he="שם פרטי">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required
+                                data-placeholder-en="Your first name"
+                                data-placeholder-he="השם הפרטי שלך"
+                                placeholder="Your first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" data-en="Last Name" data-he="שם משפחה">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required
+                                data-placeholder-en="Your last name"
+                                data-placeholder-he="שם המשפחה שלך"
+                                placeholder="Your last name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" data-en="Email" data-he="אימייל">Email</label>
+                            <input type="email" id="email" name="email" required
+                                data-placeholder-en="your@email.com"
+                                data-placeholder-he="your@email.com"
+                                placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-en="Phone" data-he="טלפון">Phone</label>
+                            <input type="tel" id="phone" name="phone"
+                                data-placeholder-en="Your phone number"
+                                data-placeholder-he="מספר הטלפון שלך"
+                                placeholder="Your phone number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service" data-en="Service of Interest" data-he="שירות מבוקש">Service of Interest</label>
+                        <select id="service" name="service">
+                            <option value="" data-en="Select a service..." data-he="בחרו שירות..." selected>Select a service...</option>
+                            <option value="strategy" data-en="Business Strategy" data-he="אסטרטגיה עסקית">Business Strategy</option>
+                            <option value="operations" data-en="Operational Excellence" data-he="מצוינות תפעולית">Operational Excellence</option>
+                            <option value="digital" data-en="Digital Transformation" data-he="טרנספורמציה דיגיטלית">Digital Transformation</option>
+                            <option value="financial" data-en="Financial Advisory" data-he="ייעוץ פיננסי">Financial Advisory</option>
+                            <option value="other" data-en="Other" data-he="אחר">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-en="Message" data-he="הודעה">Message</label>
+                        <textarea id="message" name="message" rows="5" required
+                            data-placeholder-en="Tell us about your project or question..."
+                            data-placeholder-he="ספרו לנו על הפרויקט או השאלה שלכם..."
+                            placeholder="Tell us about your project or question..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary form__submit--full" data-en="Send Message" data-he="שלחו הודעה">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="contact-main__sidebar">
+                <!-- Business Hours -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-card__title" data-en="Business Hours" data-he="שעות פעילות">
+                        <i class="fas fa-clock"></i> Business Hours
+                    </h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span data-en="Sunday - Thursday" data-he="ראשון - חמישי">Sunday - Thursday</span>
+                            <span>09:00 - 18:00</span>
+                        </li>
+                        <li>
+                            <span data-en="Friday" data-he="שישי">Friday</span>
+                            <span>09:00 - 13:00</span>
+                        </li>
+                        <li class="hours-list__closed">
+                            <span data-en="Saturday" data-he="שבת">Saturday</span>
+                            <span data-en="Closed" data-he="סגור">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Connect -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-card__title" data-en="Connect With Us" data-he="התחברו אלינו">
+                        <i class="fas fa-share-alt"></i> Connect With Us
+                    </h3>
+                    <div class="sidebar-social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Response Promise -->
+                <div class="sidebar-card sidebar-card--accent">
+                    <i class="fas fa-bolt sidebar-card__big-icon"></i>
+                    <h3 class="sidebar-card__title sidebar-card__title--white" data-en="Fast Response" data-he="מענה מהיר">Fast Response</h3>
+                    <p class="sidebar-card__text--white" data-en="We respond to all inquiries within 24 hours during business days." data-he="אנו עונים לכל הפניות תוך 24 שעות בימי עסקים.">
+                        We respond to all inquiries within 24 hours during business days.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- ========== MAP PLACEHOLDER ========== -->
+    <section class="map-section" id="map">
+        <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <p data-en="Map will be embedded here — replace with Google Maps iframe" data-he="המפה תוטמע כאן — החליפו עם iframe של גוגל מפות">
+                Map will be embedded here — replace with Google Maps iframe
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== FAQ SECTION ========== -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section__title" data-en="Frequently Asked Questions" data-he="שאלות נפוצות">Frequently Asked Questions</h2>
+            <p class="section__subtitle" data-en="Quick answers to common questions about working with us." data-he="תשובות מהירות לשאלות נפוצות על עבודה איתנו.">
+                Quick answers to common questions about working with us.
+            </p>
+
+            <div class="faq__list">
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span data-en="How long does a typical consulting engagement last?" data-he="כמה זמן נמשך פרויקט ייעוץ טיפוסי?">How long does a typical consulting engagement last?</span>
+                        <i class="fas fa-chevron-down faq-item__icon"></i>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p data-en="Engagements typically range from 3 to 12 months depending on the scope and complexity. We start with a discovery phase to define clear milestones and deliverables." data-he="פרויקטים נמשכים בדרך כלל בין 3 ל-12 חודשים בהתאם להיקף והמורכבות. אנחנו מתחילים בשלב גילוי כדי להגדיר אבני דרך ותוצרים ברורים.">
+                            Engagements typically range from 3 to 12 months depending on the scope and complexity. We start with a discovery phase to define clear milestones and deliverables.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span data-en="What industries do you work with?" data-he="באילו תעשיות אתם עובדים?">What industries do you work with?</span>
+                        <i class="fas fa-chevron-down faq-item__icon"></i>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p data-en="We work across industries including technology, healthcare, finance, manufacturing, and retail. Our methodologies are adaptable to any business environment." data-he="אנחנו עובדים במגוון תעשיות כולל טכנולוגיה, בריאות, פיננסים, ייצור וקמעונאות. המתודולוגיות שלנו ניתנות להתאמה לכל סביבה עסקית.">
+                            We work across industries including technology, healthcare, finance, manufacturing, and retail. Our methodologies are adaptable to any business environment.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span data-en="Is the initial consultation really free?" data-he="האם הייעוץ הראשוני באמת חינם?">Is the initial consultation really free?</span>
+                        <i class="fas fa-chevron-down faq-item__icon"></i>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p data-en="Yes! The first 30-minute consultation is completely free with no obligations. It's an opportunity for us to understand your needs and for you to evaluate our fit." data-he="כן! הייעוץ הראשון של 30 דקות הוא חינמי לחלוטין ללא התחייבות. זו הזדמנות עבורנו להבין את הצרכים שלך ועבורך להעריך את ההתאמה.">
+                            Yes! The first 30-minute consultation is completely free with no obligations. It's an opportunity for us to understand your needs and for you to evaluate our fit.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span data-en="Do you work with startups or only established businesses?" data-he="האם אתם עובדים עם סטארטאפים או רק עם עסקים מבוססים?">Do you work with startups or only established businesses?</span>
+                        <i class="fas fa-chevron-down faq-item__icon"></i>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p data-en="We work with businesses at every stage — from early-stage startups looking to scale, to established companies seeking transformation. We tailor our approach to your stage and needs." data-he="אנחנו עובדים עם עסקים בכל שלב — מסטארטאפים בשלב מוקדם שמחפשים לצמוח, ועד חברות מבוססות שמחפשות טרנספורמציה. אנו מתאימים את הגישה שלנו לשלב ולצרכים שלך.">
+                            We work with businesses at every stage — from early-stage startups looking to scale, to established companies seeking transformation. We tailor our approach to your stage and needs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false">
+                        <span data-en="How are your fees structured?" data-he="איך מובנית מבנה התמחור שלכם?">How are your fees structured?</span>
+                        <i class="fas fa-chevron-down faq-item__icon"></i>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p data-en="We offer flexible pricing models including project-based fees, monthly retainers, and hourly rates. During the initial consultation, we'll recommend the best structure for your needs." data-he="אנחנו מציעים מודלים גמישים של תמחור כולל תמחור לפי פרויקט, ריטיינר חודשי ותעריפים שעתיים. במהלך הייעוץ הראשוני, נמליץ על המבנה הטוב ביותר לצרכים שלך.">
+                            We offer flexible pricing models including project-based fees, monthly retainers, and hourly rates. During the initial consultation, we'll recommend the best structure for your needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <span class="logo-text" data-en="My Consulting" data-he="היועצים שלי">My Consulting</span>
+                <p class="footer__tagline" data-en="Empowering businesses since 2000" data-he="מעצימים עסקים מאז 2000">Empowering businesses since 2000</p>
+            </div>
+            <div class="footer__links">
+                <a href="index.html" data-en="Home" data-he="בית">Home</a>
+                <a href="services.html" data-en="Services" data-he="שירותים">Services</a>
+                <a href="index.html#about" data-en="About" data-he="אודות">About</a>
+                <a href="contact.html" data-en="Contact" data-he="צור קשר">Contact</a>
+            </div>
+            <div class="footer__social">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="footer__copy">&copy; 2025 My Consulting. <span data-en="All rights reserved." data-he="כל הזכויות שמורות.">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

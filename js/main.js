@@ -102,22 +102,45 @@ window.addEventListener('scroll', function() {
 // ========== CONTACT FORM ==========
 var contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', function(e) {
-    // Check if Formspree ID is still placeholder
-    var action = contactForm.getAttribute('action');
-    if (action.indexOf('YOUR_FORM_ID') !== -1) {
-        e.preventDefault();
-        var msg = currentLang === 'he'
-            ? 'תודה! ההודעה שלך התקבלה (טופס הדגמה).'
-            : 'Thank you! Your message has been received (demo form).';
-        alert(msg);
-        contactForm.reset();
-    }
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        var action = contactForm.getAttribute('action');
+        if (action.indexOf('YOUR_FORM_ID') !== -1) {
+            e.preventDefault();
+            var msg = currentLang === 'he'
+                ? 'תודה! ההודעה שלך התקבלה (טופס הדגמה).'
+                : 'Thank you! Your message has been received (demo form).';
+            alert(msg);
+            contactForm.reset();
+        }
+    });
+}
+
+// ========== FAQ ACCORDION ==========
+var faqItems = document.querySelectorAll('.faq-item__question');
+
+faqItems.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+
+        // Close all other items
+        document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle current item
+        if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+    });
 });
 
 // ========== SCROLL ANIMATIONS ==========
 function animateOnScroll() {
-    var elements = document.querySelectorAll('.service-card, .stat, .about__content, .about__image');
+    var elements = document.querySelectorAll('.service-card, .stat, .about__content, .about__image, .contact-info-card, .faq-item, .service-detail__content');
     var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
