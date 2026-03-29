@@ -100,7 +100,48 @@ window.addEventListener('scroll', function() {
 });
 
 // ========== CONTACT FORM ==========
-// Form submissions are handled by Formspree (form action URL)
+var contactForms = document.querySelectorAll('form[action*="formspree.io"]');
+
+contactForms.forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var submitBtn = form.querySelector('button[type="submit"], .btn--primary, .form__submit');
+        var originalText = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = currentLang === 'he' ? 'שולח...' : 'Sending...';
+        }
+
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        }).then(function(response) {
+            if (response.ok) {
+                var msg = currentLang === 'he'
+                    ? 'תודה! ההודעה שלך נשלחה בהצלחה.'
+                    : 'Thank you! Your message has been sent successfully.';
+                alert(msg);
+                form.reset();
+            } else {
+                var msg = currentLang === 'he'
+                    ? 'שגיאה בשליחה. אנא נסה שוב.'
+                    : 'Something went wrong. Please try again.';
+                alert(msg);
+            }
+        }).catch(function() {
+            var msg = currentLang === 'he'
+                ? 'שגיאה בשליחה. אנא נסה שוב.'
+                : 'Something went wrong. Please try again.';
+            alert(msg);
+        }).finally(function() {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    });
+});
 
 // ========== FAQ ACCORDION ==========
 var faqItems = document.querySelectorAll('.faq-item__question');
