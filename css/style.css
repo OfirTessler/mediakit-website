@@ -479,6 +479,13 @@ img {
     color: var(--color-border);
 }
 
+.about__photo {
+    width: 100%;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+}
+
 .about__text {
     font-size: 1.05rem;
     color: var(--color-text-light);
