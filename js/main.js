@@ -100,21 +100,7 @@ window.addEventListener('scroll', function() {
 });
 
 // ========== CONTACT FORM ==========
-var contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        var action = contactForm.getAttribute('action');
-        if (action.indexOf('YOUR_FORM_ID') !== -1) {
-            e.preventDefault();
-            var msg = currentLang === 'he'
-                ? 'תודה! ההודעה שלך התקבלה (טופס הדגמה).'
-                : 'Thank you! Your message has been received (demo form).';
-            alert(msg);
-            contactForm.reset();
-        }
-    });
-}
+// Form submissions are handled by Formspree (form action URL)
 
 // ========== FAQ ACCORDION ==========
 var faqItems = document.querySelectorAll('.faq-item__question');
