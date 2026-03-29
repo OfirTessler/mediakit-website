@@ -145,7 +145,7 @@ A bilingual (English + Hebrew) static website for **Livluv Consulting** (ליב�
 - Hard refresh reminders needed after each deploy (browser caching)
 - Brand name: **Livluv Consulting** (EN) / **ליבלוב ייעוץ ארגוני** (HE)
 - Images with spaces in filenames must be copied to clean names (e.g., `team-livluv.jpg`) because the simple Node preview server doesn't handle spaces
-- Contact form uses Formspree placeholder (`YOUR_FORM_ID`) — not connected yet
+- Contact form connected via Formspree (form ID: `xgopaqqo`) — submissions email the owner directly
 - Logo image exists (`logo.jpg`) but is currently **not displayed** on the site (text logo used instead)
 - Profile photo source: `Livluv updated profile.jpeg` (latest version)
 
