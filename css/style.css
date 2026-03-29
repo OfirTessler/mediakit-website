@@ -1,15 +1,15 @@
 /* ========== CSS VARIABLES ========== */
 :root {
-    --color-primary: #1B3A5C;
-    --color-accent: #2E86DE;
-    --color-accent-hover: #2475c5;
-    --color-light-bg: #EAF2FB;
-    --color-gold: #F4A261;
+    --color-primary: #2B3A4E;
+    --color-accent: #6BBAB2;
+    --color-accent-hover: #59A89F;
+    --color-light-bg: #EFF8F6;
+    --color-gold: #C9A84C;
     --color-white: #FFFFFF;
-    --color-dark: #1a1a2e;
-    --color-text: #333333;
-    --color-text-light: #666666;
-    --color-border: #e0e0e0;
+    --color-dark: #1E2D3D;
+    --color-text: #2B3A4E;
+    --color-text-light: #5A6A7A;
+    --color-border: #D5E0DA;
 
     --font-en: 'Inter', sans-serif;
     --font-he: 'Heebo', sans-serif;
@@ -92,11 +92,25 @@ img {
     gap: 10px;
 }
 
+.navbar__logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
 .logo-text {
     font-size: 1.4rem;
     font-weight: 800;
     color: var(--color-primary);
     letter-spacing: -0.5px;
+}
+
+.footer .navbar__logo-img,
+.footer__logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 8px;
 }
 
 .navbar__menu {
@@ -175,7 +189,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-primary) 0%, #0d2137 60%, #162d4a 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1E2D3D 60%, #253847 100%);
     overflow: hidden;
 }
 
@@ -296,7 +310,7 @@ img {
 /* ========== CTA BANNER ========== */
 .cta-banner {
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--color-accent) 0%, #1a6fbf 100%);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #4A9E96 100%);
     text-align: center;
 }
 
@@ -625,7 +639,7 @@ img {
 /* ========== PAGE HERO (inner pages) ========== */
 .page-hero {
     padding: 140px 0 80px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, #0d2137 60%, #162d4a 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1E2D3D 60%, #253847 100%);
     text-align: center;
 }
 
